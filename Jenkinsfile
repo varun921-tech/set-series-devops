@@ -45,7 +45,7 @@ pipeline{
           artifacts: [
           [artifactId: 'SimpleJSPapp',
           classifier: '',
-          file: 'target/SimpleJSPapp-v1.war',
+          file: 'target/SimpleJSPapp.war',
           type: 'war'
           ]
           ]
