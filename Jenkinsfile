@@ -9,7 +9,8 @@ pipeline{
   }
 
   environment {
-    version "1.0"
+    version = "1.0"
+    nexusLogin = "9810310b-7645-4adb-893d-aca1f3582082"
   }
 
   stages{
