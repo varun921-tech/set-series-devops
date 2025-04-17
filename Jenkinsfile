@@ -25,7 +25,6 @@ pipeline{
           sh "mvn test"
       }
     }
-  }
   stage('Package') {
     steps{
       echo "Packaging..."
@@ -58,6 +57,7 @@ pipeline{
         archiveArtifacts artifacts: 'target/*.jar', fingerprint:true
     }
   }
+}
 }
 
 
