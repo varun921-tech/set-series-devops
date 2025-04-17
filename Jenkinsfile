@@ -10,7 +10,7 @@ pipeline{
 
   environment {
     version = "1.0"
-    nexusLogin = "9810310b-7645-4adb-893d-aca1f3582082"
+    nexusLogin = "nexusLogin"
   }
 
   stages{
@@ -37,7 +37,7 @@ pipeline{
       nexusArtifactUploader(
           nexusVersion: 'nexus3',
           protocol: 'http',
-          nexusUrl: 'http://localhost:8082',
+          nexusUrl: 'localhost:8082',
           groupId: 'QA',
           version: version,
           repository: 'SimpleJSPapp-release',
