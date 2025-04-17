@@ -10,7 +10,6 @@ pipeline{
 
   environment {
     version = "1.0"
-    nexusLogin = "c272254f-d0ce-430c-8b4d-89e074005104"
   }
 
   stages{
@@ -43,7 +42,7 @@ pipeline{
           groupId: 'QA',
           version: version,
           repository: 'SimpleJSPapp-release',
-          credentialsId: "${nexusLogin}",
+          credentialsId: "c272254f-d0ce-430c-8b4d-89e074005104",
           artifacts: [
           [artifactId: 'SimpleJSPapp',
           classifier: '',
