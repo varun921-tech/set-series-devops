@@ -37,7 +37,7 @@ pipeline{
       nexusArtifactUploader(
           nexusVersion: 'nexus3',
           protocol: 'http',
-          nexusUrl: 'http://localhost:8082',
+          nexusUrl: 'localhost:8082',
           groupId: 'QA',
           version: version,
           repository: 'SimpleJSPapp-release',
