@@ -34,7 +34,6 @@ pipeline{
   stage('Upload to Nexus'){
     steps{
       echo "Using version : ${version}"
-      echo "Using nexusLogin : ${nexusLogin}"
       nexusArtifactUploader(
           nexusVersion: 'nexus3',
           protocol: 'http',
