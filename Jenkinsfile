@@ -32,28 +32,28 @@ pipeline{
     }
   }
   stage('Upload to Nexus'){
-  steps {
-        sh "mvn deploy:deploy-file -DgroupId=QA -DartifactId=SimpleJSPapp -Dversion=${version} -Dpackaging=war -Dfile=target/SimpleJSPapp.war -DrepositoryId=nexus -Durl=http://localhost:8082/repository/SimpleJSPapp-release/"
+  // steps {
+  //       sh "mvn deploy:deploy-file -DgroupId=QA -DartifactId=SimpleJSPapp -Dversion=${version} -Dpackaging=war -Dfile=target/SimpleJSPapp.war -DrepositoryId=nexus -Durl=http://localhost:8082/repository/SimpleJSPapp-release/"
+  //   }
+    steps{
+      echo "Using version : ${version}"
+      nexusArtifactUploader(
+          nexusVersion: 'nexus3',
+          protocol: 'http',
+          nexusUrl: '172.17.0.3:8082',
+          groupId: 'QA',
+          version: version,
+          repository: 'SimpleJSPapp-release',
+          credentialsId: "c272254f-d0ce-430c-8b4d-89e074005104",
+          artifacts: [
+          [artifactId: 'SimpleJSPapp',
+          classifier: '',
+          file: 'target/SimpleJSPapp.war',
+          type: 'war'
+          ]
+          ]
+          )
     }
-    // steps{
-    //   echo "Using version : ${version}"
-    //   nexusArtifactUploader(
-    //       nexusVersion: 'nexus3',
-    //       protocol: 'http',
-    //       nexusUrl: 'localhost:8082',
-    //       groupId: 'QA',
-    //       version: version,
-    //       repository: 'SimpleJSPapp-release',
-    //       credentialsId: "c272254f-d0ce-430c-8b4d-89e074005104",
-    //       artifacts: [
-    //       [artifactId: 'SimpleJSPapp',
-    //       classifier: '',
-    //       file: 'target/SimpleJSPapp.war',
-    //       type: 'war'
-    //       ]
-    //       ]
-    //       )
-    // }
   }
   stage('Archive Artifacts') {
     steps{
