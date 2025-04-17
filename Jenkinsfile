@@ -37,7 +37,7 @@ pipeline{
       nexusArtifactUploader(
           nexusVersion: 'nexus3',
           protocol: 'http',
-          nexusUrl: 'localhost:8082',
+          nexusUrl: 'http://localhost:8082',
           groupId: 'QA',
           version: version,
           repository: 'SimpleJSPapp-release',
@@ -55,7 +55,7 @@ pipeline{
   stage('Archive Artifacts') {
     steps{
       echo "Archiving..."
-        archiveArtifacts artifacts: 'target/*.jar', fingerprint:true
+        archiveArtifacts artifacts: 'target/*.war', fingerprint:true
     }
   }
 }
