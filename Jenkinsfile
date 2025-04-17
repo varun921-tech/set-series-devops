@@ -9,8 +9,8 @@ pipeline{
   }
 
   environment {
-      version "1.0"
-    }
+    version "1.0"
+  }
 
   stages{
     stage('Build') {
@@ -43,23 +43,22 @@ pipeline{
           repository: 'SimpleJSPapp-release',
           credentialsId: "${nexusLogin}",
           artifacts: [
-            [artifactId: 'SimpleJSPapp',
-            classifier: '',
-            file: 'target/SimpleJSPapp-v1.war',
-            type: 'war'
-            ]
+          [artifactId: 'SimpleJSPapp',
+          classifier: '',
+          file: 'target/SimpleJSPapp-v1.war',
+          type: 'war'
           ]
-      )
+          ]
+          )
     }
   }
   stage('Archive Artifacts') {
     steps{
       echo "Archiving..."
         archiveArtifacts artifacts: 'target/*.jar', fingerprint:true
-                                             }
-                                             }
-                                             }
-                                             }
+    }
+  }
+}
 
 
 
