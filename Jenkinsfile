@@ -36,11 +36,9 @@ pipeline{
   //       sh "mvn deploy:deploy-file -DgroupId=QA -DartifactId=SimpleJSPapp -Dversion=${version} -Dpackaging=war -Dfile=target/SimpleJSPapp.war -DrepositoryId=nexus -Durl=http://localhost:8082/repository/SimpleJSPapp-release/"
   //   }
     steps{
-      echo "Using version : ${version}"
-      nexusArtifactUploader(
           nexusVersion: 'nexus3',
           protocol: 'http',
-          nexusUrl: '172.18.0.3:8082',
+          nexusUrl: 'localhost:8082',
           groupId: 'QA',
           version: version,
           repository: 'SimpleJSPapp-release',
