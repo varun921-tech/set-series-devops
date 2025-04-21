@@ -36,7 +36,8 @@ pipeline{
   //       sh "mvn deploy:deploy-file -DgroupId=QA -DartifactId=SimpleJSPapp -Dversion=${version} -Dpackaging=war -Dfile=target/SimpleJSPapp.war -DrepositoryId=nexus -Durl=http://localhost:8082/repository/SimpleJSPapp-release/"
   //   }
     steps{
-          // nexusVersion: 'nexus3',
+    nexusArtifactUploader(
+          nexusVersion: 'nexus3',
           protocol: 'http',
           nexusUrl: 'localhost:8082',
           groupId: 'QA',
@@ -50,6 +51,7 @@ pipeline{
           type: 'war'
           ]
           ]
+          )
     }
   }
   stage('Archive Artifacts') {
