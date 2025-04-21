@@ -43,7 +43,7 @@ pipeline{
           groupId: 'QA',
           version: version,
           repository: 'SimpleJSPapp-release',
-          credentialsId: "c272254f-d0ce-430c-8b4d-89e074005104",
+          credentialsId: "05750304-b78b-4660-ad87-a2cc09c39d3b",
           artifacts: [
           [artifactId: 'SimpleJSPapp',
           classifier: '',
