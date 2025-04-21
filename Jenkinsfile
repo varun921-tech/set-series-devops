@@ -42,7 +42,7 @@ pipeline{
           nexusUrl: 'localhost:8082',
           groupId: 'QA',
           version: version,
-          repository: 'SimpleJSPapp-release',
+          repository: 'SimpleJSPapp',
           credentialsId: "05750304-b78b-4660-ad87-a2cc09c39d3b",
           artifacts: [
           [artifactId: 'SimpleJSPapp',
